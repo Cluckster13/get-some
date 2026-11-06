@@ -1,0 +1,148 @@
+[gd_scene format=3 uid="uid://ddx1bgyx77w64"]
+
+[ext_resource type="Script" uid="uid://22rw7o5yf15" path="res://Scenes/Map/outpost_june.gd" id="1_pixxo"]
+[ext_resource type="PackedScene" uid="uid://wxg7r274d1bu" path="res://Scenes/PlayerCharacter/PlayerCharacter.tscn" id="1_prwwp"]
+[ext_resource type="Shader" uid="uid://t6v0wb8p22i2" path="res://Scenes/Map/outpost_june.gdshader" id="2_3b11t"]
+[ext_resource type="Texture2D" uid="uid://c88j3oj0lf6om" path="res://demo/assets/textures/rock023_alb_ht.png" id="2_mwm1i"]
+[ext_resource type="PackedScene" uid="uid://bsyno6winym0e" path="res://Scenes/Misc/m_2_browning.tscn" id="2_xy8nq"]
+[ext_resource type="Texture2D" uid="uid://c307hdmos4gtm" path="res://demo/assets/textures/rock023_nrm_rgh.png" id="3_2uoux"]
+[ext_resource type="Texture2D" uid="uid://ddprscrpsofah" path="res://demo/assets/textures/ground037_alb_ht.png" id="4_uucro"]
+[ext_resource type="PackedScene" uid="uid://di5fovhcyd7re" path="res://demo/components/Enemy.tscn" id="4_vrpsl"]
+[ext_resource type="Texture2D" uid="uid://c1ots7w6i0i1q" path="res://demo/assets/textures/ground037_nrm_rgh.png" id="5_7cxks"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_pixxo"]
+
+[sub_resource type="Gradient" id="Gradient_abe71"]
+offsets = PackedFloat32Array(0.2, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_prwwp"]
+noise_type = 2
+frequency = 0.03
+cellular_jitter = 3.0
+cellular_return_type = 0
+domain_warp_enabled = true
+domain_warp_type = 1
+domain_warp_amplitude = 50.0
+domain_warp_fractal_type = 2
+domain_warp_fractal_lacunarity = 1.5
+domain_warp_fractal_gain = 1.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_xy8nq"]
+noise = SubResource("FastNoiseLite_prwwp")
+color_ramp = SubResource("Gradient_abe71")
+seamless = true
+
+[sub_resource type="Terrain3DMaterial" id="Terrain3DMaterial_3b11t"]
+_shader_parameters = {
+&"bias_distance": 512.0,
+&"blend_sharpness": 0.5,
+&"depth_blur": 0.0,
+&"enable_macro_variation": true,
+&"enable_projection": true,
+&"flat_terrain_normals": false,
+&"macro_variation1": Color(1, 1, 1, 1),
+&"macro_variation2": Color(1, 1, 1, 1),
+&"macro_variation_slope": 0.333,
+&"mipmap_bias": 1.0,
+&"noise1_angle": 0.0,
+&"noise1_offset": Vector2(0.5, 0.5),
+&"noise1_scale": 0.04,
+&"noise2_scale": 0.076,
+&"noise_texture": SubResource("NoiseTexture2D_xy8nq"),
+&"projection_threshold": 0.8
+}
+world_background = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vrpsl"]
+transparency = 4
+cull_mode = 2
+vertex_color_use_as_albedo = true
+backlight_enabled = true
+backlight = Color(0.5, 0.5, 0.5, 1)
+distance_fade_mode = 1
+distance_fade_min_distance = 128.0
+distance_fade_max_distance = 96.0
+
+[sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_pixxo"]
+generated_type = 1
+height_offset = 0.5
+material_override = SubResource("StandardMaterial3D_vrpsl")
+last_lod = 0
+last_shadow_lod = 0
+lod0_range = 128.0
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_c56sp"]
+name = ""
+albedo_texture = ExtResource("2_mwm1i")
+normal_texture = ExtResource("3_2uoux")
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_uk3nq"]
+name = ""
+id = 1
+albedo_texture = ExtResource("4_uucro")
+normal_texture = ExtResource("5_7cxks")
+
+[sub_resource type="Terrain3DAssets" id="Terrain3DAssets_tex2r"]
+mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_pixxo")])
+texture_list = Array[Terrain3DTextureAsset]([SubResource("Terrain3DTextureAsset_c56sp"), SubResource("Terrain3DTextureAsset_uk3nq")])
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vrpsl"]
+shader = ExtResource("2_3b11t")
+
+[sub_resource type="Sky" id="Sky_pixxo"]
+sky_material = SubResource("ShaderMaterial_vrpsl")
+
+[sub_resource type="Environment" id="Environment_prwwp"]
+background_mode = 2
+sky = SubResource("Sky_pixxo")
+glow_enabled = true
+fog_enabled = true
+fog_light_energy = 0.0
+fog_sun_scatter = 0.03
+fog_density = 0.0316
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xy8nq"]
+albedo_color = Color(0, 0, 0, 1)
+metallic = 1.0
+
+[node name="OutpostJune" type="Node3D" unique_id=1495046963]
+script = ExtResource("1_pixxo")
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=322746855]
+navigation_mesh = SubResource("NavigationMesh_pixxo")
+
+[node name="Terrain3D" type="Terrain3D" parent="NavigationRegion3D" unique_id=511995623]
+data_directory = "res://addons/Terrain3dData"
+material = SubResource("Terrain3DMaterial_3b11t")
+assets = SubResource("Terrain3DAssets_tex2r")
+top_level = true
+metadata/_edit_lock_ = true
+
+[node name="PlayerCharacter" parent="." unique_id=1081472024 instance=ExtResource("1_prwwp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.359011, 1.5639286, 8.231272)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=136584589]
+transform = Transform3D(0.8390935, 0.14129879, 0.525316, -0.008366243, -0.96221066, 0.27217764, 0.54392296, -0.2327774, -0.80620265, 0, 0, 0)
+light_energy = 0.1
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1765700028]
+environment = SubResource("Environment_prwwp")
+
+[node name="m2Browning" parent="." unique_id=1687383215 instance=ExtResource("2_xy8nq")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -11.271877, 1.1811266, 4.42766)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=467890859]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.139091, 0.57815075, 3.9733095)
+use_collision = true
+size = Vector3(8, 1, 0.15039063)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="." unique_id=245085213]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.273633, 0.2683152, 4.566045)
+radius = 0.026367188
+height = 2.1210938
+material = SubResource("StandardMaterial3D_xy8nq")
+
+[node name="Enemy" parent="." unique_id=383705331 node_paths=PackedStringArray("target") instance=ExtResource("4_vrpsl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.42148, 1.0662308, -87.039116)
+target = NodePath("../PlayerCharacter")

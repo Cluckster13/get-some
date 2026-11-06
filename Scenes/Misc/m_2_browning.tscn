@@ -1,0 +1,360 @@
+[gd_scene format=4 uid="uid://bsyno6winym0e"]
+
+[ext_resource type="PackedScene" uid="uid://bu00du6ivhle4" path="res://Scenes/Misc/scene.gltf" id="1_a6y4o"]
+[ext_resource type="Animation" uid="uid://dgpobdqgjgalt" path="res://Animations/Charge.res" id="2_8ywkx"]
+[ext_resource type="Script" uid="uid://bg4pkaabbapk" path="res://Scenes/Misc/m_2_browning.gd" id="2_twm05"]
+[ext_resource type="Animation" uid="uid://bjrveu3qhp1o7" path="res://Animations/OpenTopCover.res" id="3_7c2si"]
+[ext_resource type="Texture2D" uid="uid://68eowou0gp0u" path="res://Meshes/muzzleflash03.png" id="3_xtevr"]
+[ext_resource type="ArrayMesh" uid="uid://brtnrn0ww0jeb" path="res://Meshes/muzzlecone.obj" id="4_cu8v6"]
+[ext_resource type="Animation" uid="uid://dpsbwpisxspru" path="res://Animations/Firing.res" id="4_twm05"]
+[ext_resource type="Script" uid="uid://ejt27l0cv85s" path="res://Scenes/Misc/placeholderm2.gd" id="6_twm05"]
+[ext_resource type="AudioStream" uid="uid://ch0r2uk7s66sj" path="res://sounds/50singleshot.wav" id="8_cu8v6"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_a6jy4"]
+load_path = "res://.godot/imported/muzzleflash01.png-aa9aeb2d08e07f7857fcfd2cc65d7081.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cu8v6"]
+transparency = 1
+blend_mode = 1
+cull_mode = 2
+shading_mode = 0
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_texture = SubResource("CompressedTexture2D_a6jy4")
+refraction_scale = 1.0
+
+[sub_resource type="Curve" id="Curve_cu8v6"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_k71el"]
+curve = SubResource("Curve_cu8v6")
+
+[sub_resource type="Curve" id="Curve_5hh65"]
+_data = [Vector2(0, 0), 0.0, 2.9328153, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_qni7v"]
+curve = SubResource("Curve_5hh65")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_p8ahb"]
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_qni7v")
+color = Color(2, 1.5, 1, 1)
+alpha_curve = SubResource("CurveTexture_k71el")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_1qwst"]
+_surfaces = [{
+"aabb": AABB(-0.995719, -1.000001, -0.002904, 2, 2, 2),
+"format": 34896613377,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAgABAAMABAAFAAYABgAFAAcA"),
+"name": "MuzzlePlane.001",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("/38AAP//AAD/f/////8AAP9/AAAAAAAA/3///wAAAAD///9///8AAAAA/3///wAA////fwAAAAAAAP9/AAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_drw7x"]
+_surfaces = [{
+"aabb": AABB(-0.995719, -1.000001, -0.002904, 2, 2, 2),
+"attribute_data": PackedByteArray("AAD//wAAAAD///////8AAAAA//8AAAAA////////AAA="),
+"format": 34896613399,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAgABAAMABAAFAAYABgAFAAcA"),
+"name": "MuzzlePlane.001",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("/38AAP///7//f///////v/9/AAAAAP+//3///wAA/7////9///9U1QAA/3///1TV////fwAAVNUAAP9/AABU1f9/AAD/fwAA/38AAP9/AABU1aoqVNWqKlTVqipU1aoq")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_1qwst")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k71el"]
+transparency = 1
+blend_mode = 1
+cull_mode = 2
+shading_mode = 0
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_texture = ExtResource("3_xtevr")
+refraction_scale = 1.0
+billboard_mode = 2
+billboard_keep_scale = true
+
+[sub_resource type="Curve" id="Curve_xtevr"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_cu8v6"]
+curve = SubResource("Curve_xtevr")
+
+[sub_resource type="Curve" id="Curve_k71el"]
+_data = [Vector2(0, 0), 0.0, 2.9328153, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_5hh65"]
+curve = SubResource("Curve_k71el")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qni7v"]
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_5hh65")
+color = Color(1.5, 1, 0.5, 1)
+alpha_curve = SubResource("CurveTexture_cu8v6")
+
+[sub_resource type="QuadMesh" id="QuadMesh_cu8v6"]
+size = Vector2(0.25, 0.25)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xtevr"]
+transparency = 1
+blend_mode = 1
+cull_mode = 2
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_texture = ExtResource("3_xtevr")
+
+[sub_resource type="Curve" id="Curve_qni7v"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1e-05, 1), -3.1166341, -3.1166341, 0, 0, Vector2(0.9401994, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_p8ahb"]
+curve = SubResource("Curve_qni7v")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_drw7x"]
+particle_flag_align_y = true
+direction = Vector3(0, 0, 1)
+initial_velocity_min = 5.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.049999997
+scale_max = 0.29999998
+color = Color(4.5, 3, 1, 1)
+alpha_curve = SubResource("CurveTexture_p8ahb")
+
+[sub_resource type="QuadMesh" id="QuadMesh_igyks"]
+size = Vector2(0.2, 1)
+
+[sub_resource type="Animation" id="Animation_8ywkx"]
+length = 0.001
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sketchfab_model/bb64d2cf157e43bd898d0af139db59ec_fbx/RootNode/M2 Browning 2/M2 Browning 2 Bolt 2/M2 Browning 2 Charging Handle 1")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.99999994)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sketchfab_model/bb64d2cf157e43bd898d0af139db59ec_fbx/RootNode/M2 Browning 2/M2 Browning 2 Top Cover 1")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sketchfab_model/bb64d2cf157e43bd898d0af139db59ec_fbx/RootNode/M2 Browning 2/M2 Browning 2 Top Cover 1/M2 Browning 2 Top Cover 1 Part 3:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-2.646978e-23, 0, 0)]
+}
+tracks/3/type = "position_3d"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sketchfab_model/bb64d2cf157e43bd898d0af139db59ec_fbx/RootNode/M2 Browning 2/M2 Browning 2 Barrel 1")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, -7.719357e-18, -0.4249869, -0.017958704)
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sketchfab_model/bb64d2cf157e43bd898d0af139db59ec_fbx/RootNode/M2 Browning 2/M2 Browning 2 Trigger 1:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sketchfab_model/bb64d2cf157e43bd898d0af139db59ec_fbx/RootNode/M2 Browning 2:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Sketchfab_model/bb64d2cf157e43bd898d0af139db59ec_fbx/RootNode/M2 Browning 2/M2 Browning 2 Barrel 1/MuzzleFlashOmniLight:light_energy")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_twm05"]
+_data = {
+&"RESET": SubResource("Animation_8ywkx")
+}
+
+[sub_resource type="Animation" id="Animation_7c2si"]
+resource_name = "CloseTopCover"
+length = 0.7
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sketchfab_model/bb64d2cf157e43bd898d0af139db59ec_fbx/RootNode/M2 Browning 2/M2 Browning 2 Top Cover 1")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.6087613, 0, 0, 0.7933534, 0.4, 1, 0, 0, 0, 1, 0.46666667, 1, 0, 0, 0, 1)
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sketchfab_model/bb64d2cf157e43bd898d0af139db59ec_fbx/RootNode/M2 Browning 2/M2 Browning 2 Top Cover 1/M2 Browning 2 Top Cover 1 Part 3:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.35, 0.38333333, 0.43333334),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-2.646978e-23, 0, 0), Vector3(0.7853982, 0, 0), Vector3(-2.646978e-23, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xtevr"]
+_data = {
+&"Charge": ExtResource("2_8ywkx"),
+&"CloseTopCover": SubResource("Animation_7c2si"),
+&"Firing": ExtResource("4_twm05"),
+&"OpenTopCover": ExtResource("3_7c2si")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8ywkx"]
+size = Vector3(0.5383301, 0.46643066, 2.0647278)
+
+[node name="m2Browning" unique_id=1687383215 instance=ExtResource("1_a6y4o")]
+script = ExtResource("2_twm05")
+
+[node name="Sketchfab_model" parent="." index="0" unique_id=2060752807]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="RootNode" parent="Sketchfab_model/bb64d2cf157e43bd898d0af139db59ec_fbx" parent_id_path=PackedInt32Array(65788826) index="0" unique_id=1583984984]
+transform = Transform3D(1.0000001, 0, 0, 0, -0.99999976, -1.5099576e-07, 0, 1.5099576e-07, -0.99999976, 0, 0, 0)
+
+[node name="M2 Browning 2" parent="Sketchfab_model/bb64d2cf157e43bd898d0af139db59ec_fbx/RootNode" index="0" unique_id=632581927]
+transform = Transform3D(100.00001, 0, 0, 0, 100.00001, 0, 0, 0, 100.00001, 1.8160374e-16, 0.81787056, 19.37331)
+
+[node name="M2 Browning 2 Barrel 1" parent="Sketchfab_model/bb64d2cf157e43bd898d0af139db59ec_fbx/RootNode/M2 Browning 2" index="7" unique_id=1971343622]
+transform = Transform3D(1, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, -7.719357e-18, -0.4249869, -0.017958704)
+
+[node name="MuzzleFlashNode" type="Node3D" parent="Sketchfab_model/bb64d2cf157e43bd898d0af139db59ec_fbx/RootNode/M2 Browning 2/M2 Browning 2 Barrel 1" index="1" unique_id=1550095521]
+transform = Transform3D(1, 0, 0, 0, 0.9999998, -2.842171e-14, 0, 2.842171e-14, 0.9999998, 0, -0.83272386, -1.3411045e-07)
+
+[node name="MuzzleFlashPlane" type="GPUParticles3D" parent="Sketchfab_model/bb64d2cf157e43bd898d0af139db59ec_fbx/RootNode/M2 Browning 2/M2 Browning 2 Barrel 1/MuzzleFlashNode" index="0" unique_id=1735746793]
+transform = Transform3D(1, 0, 0, 0, -4.371143e-08, -0.99999976, 0, 0.99999976, -4.371143e-08, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_cu8v6")
+emitting = false
+amount = 1
+lifetime = 0.1
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_p8ahb")
+draw_pass_1 = SubResource("ArrayMesh_drw7x")
+
+[node name="MuzzleCone" type="GPUParticles3D" parent="Sketchfab_model/bb64d2cf157e43bd898d0af139db59ec_fbx/RootNode/M2 Browning 2/M2 Browning 2 Barrel 1/MuzzleFlashNode" index="1" unique_id=1420984644]
+transform = Transform3D(1, 0, 0, 0, -4.3711445e-08, -0.99999964, 0, 0.99999964, -4.3711445e-08, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_k71el")
+emitting = false
+amount = 1
+lifetime = 0.1
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_p8ahb")
+draw_pass_1 = ExtResource("4_cu8v6")
+
+[node name="MuzzleFlash" type="GPUParticles3D" parent="Sketchfab_model/bb64d2cf157e43bd898d0af139db59ec_fbx/RootNode/M2 Browning 2/M2 Browning 2 Barrel 1/MuzzleFlashNode" index="2" unique_id=1583561287]
+transform = Transform3D(-4.371139e-08, -1.0728432e-07, 0.9999997, 0.99999976, -1.5099575e-07, 4.3711342e-08, 1.5099579e-07, 0.99999946, 1.0728431e-07, 0, -0.12544942, -2.9802322e-08)
+material_override = SubResource("StandardMaterial3D_k71el")
+emitting = false
+amount = 1
+lifetime = 0.1
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_qni7v")
+draw_pass_1 = SubResource("QuadMesh_cu8v6")
+
+[node name="MuzzleSparks" type="GPUParticles3D" parent="Sketchfab_model/bb64d2cf157e43bd898d0af139db59ec_fbx/RootNode/M2 Browning 2/M2 Browning 2 Barrel 1/MuzzleFlashNode" index="3" unique_id=1531677053]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -0.99999994, 0, 0.99999994, -4.371139e-08, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_xtevr")
+emitting = false
+explosiveness = 1.0
+randomness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_drw7x")
+draw_pass_1 = SubResource("QuadMesh_igyks")
+
+[node name="MuzzleFlashOmniLight" type="OmniLight3D" parent="Sketchfab_model/bb64d2cf157e43bd898d0af139db59ec_fbx/RootNode/M2 Browning 2/M2 Browning 2 Barrel 1" index="2" unique_id=1132122357]
+transform = Transform3D(0.9999999, 0, 0, 0, 1.0000004, -2.842171e-14, 0, 2.842171e-14, 1.0000004, 0, -0.8155991, -1.1920929e-07)
+light_color = Color(1.19419, 0.74580705, 0, 1)
+light_energy = 0.0
+light_indirect_energy = 2.0
+light_size = 0.5
+light_specular = 1.0
+shadow_enabled = true
+
+[node name="M2 Browning 2 Charging Handle 1" parent="Sketchfab_model/bb64d2cf157e43bd898d0af139db59ec_fbx/RootNode/M2 Browning 2/M2 Browning 2 Bolt 2" parent_id_path=PackedInt32Array(1512758692) index="2" unique_id=343267114]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="M2 Browning 2 Top Cover 1" parent="Sketchfab_model/bb64d2cf157e43bd898d0af139db59ec_fbx/RootNode/M2 Browning 2" index="13" unique_id=456674628]
+transform = Transform3D(1, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, -1.7476778e-17, -0.047783904, 0.062351003)
+
+[node name="M2 Browning 2 Top Cover 1 Part 3" parent="Sketchfab_model/bb64d2cf157e43bd898d0af139db59ec_fbx/RootNode/M2 Browning 2/M2 Browning 2 Top Cover 1" index="4" unique_id=1956614615]
+transform = Transform3D(1, 0, 0, 0, 1, 2.646978e-23, 0, -2.646978e-23, 1, 0.06774699, 0.44791952, 5.9604645e-08)
+
+[node name="M2 Browning 2 Trigger 1" parent="Sketchfab_model/bb64d2cf157e43bd898d0af139db59ec_fbx/RootNode/M2 Browning 2" index="14" unique_id=981182585]
+transform = Transform3D(1, 0, 0, 0, 0.99999917, 0, 0, 0, 0.99999917, 1.29451996e-17, 0.74232566, 0.058299996)
+
+[node name="M2 Browning 2 Trigger 1_M2 Browning 2 Material 1_0" parent="Sketchfab_model/bb64d2cf157e43bd898d0af139db59ec_fbx/RootNode/M2 Browning 2/M2 Browning 2 Trigger 1" index="0" unique_id=363702098]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1" unique_id=583463804]
+libraries/ = SubResource("AnimationLibrary_twm05")
+libraries/M2Browning = SubResource("AnimationLibrary_xtevr")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="2" unique_id=1434134905]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.21151093, 0)
+
+[node name="50Singleshot" type="AudioStreamPlayer" parent="AudioStreamPlayer3D" index="0" unique_id=402659847]
+stream = ExtResource("8_cu8v6")
+volume_db = -10.0
+max_polyphony = 2
+
+[node name="Collision" type="StaticBody3D" parent="." index="3" unique_id=1989695719]
+transform = Transform3D(0.010000001, 0, 0, 0, 0.009999997, 1.0728438e-09, 0, -1.0728438e-09, 0.009999997, 0, 0, 0)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("6_twm05")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collision" index="0" unique_id=1757403699]
+transform = Transform3D(100.00001, 0, 0, 0, 100, 0, 0, 0, 100, 10.219445, 20.355324, 18.478004)
+shape = SubResource("BoxShape3D_8ywkx")
+
+[node name="ShotTimer" type="Timer" parent="." index="4" unique_id=731809526]
+wait_time = 0.1
+autostart = true
+
+[connection signal="visibility_changed" from="Sketchfab_model/bb64d2cf157e43bd898d0af139db59ec_fbx/RootNode/M2 Browning 2/M2 Browning 2 Barrel 1/MuzzleFlashOmniLight" to="Collision" method="_on_muzzle_flash_omni_light_visibility_changed"]
+[connection signal="timeout" from="ShotTimer" to="Collision" method="_on_shot_timer_timeout"]

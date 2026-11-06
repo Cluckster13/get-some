@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://bievyn313xrh6"]
+
+[ext_resource type="Material" uid="uid://r7nk1mu7yxlx" path="res://Scenes/NPCs/DEVVisibleMarkerMesh.tres" id="1_3m26n"]
+[ext_resource type="Script" uid="uid://b0gkp7m47avur" path="res://Scenes/NPCs/squad_formation.gd" id="1_y6uwd"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_860hb"]
+
+[node name="SquadFormationMarkers" type="Node3D" unique_id=2059875559]
+script = ExtResource("1_y6uwd")
+
+[node name="SquadMarker1" type="Marker3D" parent="." unique_id=1537993919]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -4)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SquadMarker1" unique_id=646849657]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("PrismMesh_860hb")
+surface_material_override/0 = ExtResource("1_3m26n")
+
+[node name="SquadMarker2" type="Marker3D" parent="." unique_id=2023082008]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -4)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SquadMarker2" unique_id=1911992079]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("PrismMesh_860hb")
+surface_material_override/0 = ExtResource("1_3m26n")
+
+[node name="SquadMarker3" type="Marker3D" parent="." unique_id=1145316836]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, -8)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SquadMarker3" unique_id=1210506382]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("PrismMesh_860hb")
+surface_material_override/0 = ExtResource("1_3m26n")
+
+[node name="SquadMarker4" type="Marker3D" parent="." unique_id=1456286394]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, -8)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SquadMarker4" unique_id=1759017634]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("PrismMesh_860hb")
+surface_material_override/0 = ExtResource("1_3m26n")
+
+[node name="SquadMarker5" type="Marker3D" parent="." unique_id=1691880079]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, -13)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SquadMarker5" unique_id=446234683]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("PrismMesh_860hb")
+surface_material_override/0 = ExtResource("1_3m26n")

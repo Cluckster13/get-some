@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://wxg7r274d1bu"]
+
+[ext_resource type="Script" uid="uid://cocy2nd0nd2n0" path="res://Scenes/PlayerCharacter/MovementComponent.gd" id="1_7sflc"]
+[ext_resource type="Script" uid="uid://250gs5dxvp1" path="res://Scenes/PlayerCharacter/player_character.gd" id="1_xbcx4"]
+[ext_resource type="Script" uid="uid://c2xe8lv7y1gmn" path="res://Scenes/PlayerCharacter/camera_3d.gd" id="3_vlfjb"]
+[ext_resource type="Script" uid="uid://c62qpu17bhqkh" path="res://Scenes/PlayerCharacter/interaction_component.gd" id="4_wwltf"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_jgbtw"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_c5t7d"]
+
+[node name="PlayerCharacter" type="CharacterBody3D" unique_id=1081472024]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_xbcx4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1589833354]
+mesh = SubResource("CapsuleMesh_jgbtw")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=2041268070]
+shape = SubResource("CapsuleShape3D_c5t7d")
+
+[node name="MovementComponent" type="Node" parent="." unique_id=1456904865]
+script = ExtResource("1_7sflc")
+
+[node name="Head" type="Node3D" parent="." unique_id=770117748]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6974932, -0.36072594)
+
+[node name="Camera3D" type="Camera3D" parent="Head" unique_id=2099094345]
+script = ExtResource("3_vlfjb")
+
+[node name="InteractionComponent" type="Node3D" parent="Head/Camera3D" unique_id=1793924676]
+script = ExtResource("4_wwltf")

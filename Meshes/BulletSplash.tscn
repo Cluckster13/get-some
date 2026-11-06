@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://csm470cugr7ej"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_w8onp"]
+radial_velocity_min = 4.9999776
+radial_velocity_max = 9.999977
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w8onp"]
+cull_mode = 2
+albedo_color = Color(0.7778729, 0.47657922, 0, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_xkilb"]
+lightmap_size_hint = Vector2i(7, 7)
+material = SubResource("StandardMaterial3D_w8onp")
+size = Vector2(0.1, 0.1)
+
+[sub_resource type="Skin" id="Skin_34ulf"]
+
+[node name="BulletSplash" type="GPUParticles3D" unique_id=1476271786]
+emitting = false
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_w8onp")
+draw_pass_1 = SubResource("QuadMesh_xkilb")
+draw_skin = SubResource("Skin_34ulf")

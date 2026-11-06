@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://bujb4oy0r4i14"]
+
+[ext_resource type="Script" uid="uid://cocy2nd0nd2n0" path="res://Scenes/PlayerCharacter/MovementComponent.gd" id="1_ftk4v"]
+[ext_resource type="Material" uid="uid://r7nk1mu7yxlx" path="res://Scenes/NPCs/DEVVisibleMarkerMesh.tres" id="2_2reex"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_jgbtw"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_c5t7d"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_6abyi"]
+
+[node name="SquadAI" type="CharacterBody3D" unique_id=1081472024]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1589833354]
+mesh = SubResource("CapsuleMesh_jgbtw")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=2041268070]
+shape = SubResource("CapsuleShape3D_c5t7d")
+
+[node name="MovementComponent" type="Node" parent="." unique_id=1456904865]
+script = ExtResource("1_ftk4v")
+
+[node name="Head" type="Node3D" parent="." unique_id=770117748]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6974932, -0.36072594)
+
+[node name="Camera3D" type="Camera3D" parent="Head" unique_id=2099094345]
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Head" unique_id=1533686131]
+transform = Transform3D(0.4, 0, 0, 0, -1.7484556e-08, 0.4, 0, -0.4, -1.7484556e-08, 0, 0, 0)
+mesh = SubResource("PrismMesh_6abyi")
+surface_material_override/0 = ExtResource("2_2reex")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=2135312488]
